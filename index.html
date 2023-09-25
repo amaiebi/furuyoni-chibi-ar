@@ -12,19 +12,15 @@
     <a-scene embedded arjs vr-mode-ui="enabled: false">
       <a-assets>
         <!-- 3Dモデルを読み込む -->
-        <a-asset-item id="hagane" src="hagane.gif" scale="2 2 2"></a-asset-item>
+        <a-asset-item id="hagane" src="hagane.gif" scale="1 1 1"></a-asset-item>
       </a-assets>
       <!-- マーカーを設定する -->
       <a-marker type="pattern" url="pattern-marker.patt">
         <!-- 3Dモデルを呼び出す -->
-        <a-entity position="0 0 0" rotation="90 0 0" geometry="" material="shader: gif; src: url(hagane)"></a-entity>
+        <a-entity position="0 0 0" rotation="90 0 0" geometry="" material="shader: gif; src: url(hagane.gif)" scale="1 1 1"></a-entity>
+        <a-entity gltf-model="#chaei" rotation="-90 0 0"></a-entity>
       </a-marker>
       <!-- カメラを追加 -->
       <a-entity camera></a-entity>
     </a-scene>
   </body>
-  <script>
-      //glTFの表示が暗くなる問題に対処
-      document.querySelector("a-scene").renderer.gammaOutput=true;
-  </script>
-</html>
