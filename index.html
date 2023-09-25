@@ -15,16 +15,13 @@
 </head>
   
 <body>
- 
-<!-- デバッグ用の画面表示、VR用のボタンをそれぞれ非表示に -->
-<a-scene embedded arjs="debugUIEnabled:false;" vr-mode-ui="enabled: false">
         <!-- Assetの用意　 -->
         <a-assets>
             <img id="hagane" src="hagane.gif">
         </a-assets>
 
 <!-- 『.patt』ファイルを読み込む -->
-　<a-marker preset="custom" type="pattern" url="pattern-testmarker.patt" >
+　<a-marker preset="custom" type="pattern" url="hagane.patt" >
    <a-entity
               geometry="primitive: plane;"
               material="shader:gif; src:#hagane;
