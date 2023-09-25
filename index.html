@@ -1,23 +1,44 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8" />
-    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image.prod.js"></script>
-    <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image-aframe.prod.js"></script>
-    <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
-  </head>
-  <body>
-        <a-scene mindar-image="imageTargetSrc: ./targets.mind; " color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
-      <a-assets>
-        <img id="hagane" src="./hagane.gif">
-      </a-assets>
+<head>
+<meta charset="utf-8">
+<!-- A-Frame ライブラリの読み込み※GIFはV0.9.0で動く -->
+  <script src='https://aframe.io/releases/0.9.0/aframe.min.js'></script>
+<!-- AR.js ライブラリの読み込み -->
+<script src='https://raw.githack.com/jeromeetienne/AR.js/2.0.8/aframe/build/aframe-ar.js'></script>
+<!-- shaderライブラリ -->
+<script src="aframe-gif-shader-master/dist/aframe-gif-shader.min.js"></script>
+<script src="shader-grid-glitch.js"></script>
 
-      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-      
-      <a-entity mindar-image-target="targetIndex: 0">
-        <a-plane geometry="primitive: plane;" material="shader:gif; src:#hagane; opacity:1" rotation="90 0 0"></a-plane>
-      </a-entity>
-    </a-scene>
-  </body>
+<link rel="stylesheet" href="style.css">
+<title>YPCの簡単AR</title>
+</head>
+  
+<body>
+  <div class="arjs-loader">
+    <p>gifアニメテスト00</p>
+  </div>
+ 
+<!-- デバッグ用の画面表示、VR用のボタンをそれぞれ非表示に -->
+<a-scene embedded arjs="debugUIEnabled:false;" vr-mode-ui="enabled: false">
+        <!-- Assetの用意　 -->
+        <a-assets>
+            <img id="hagane" src="hagane.gif">
+        </a-assets>
+
+<!-- 『.patt』ファイルを読み込む -->
+　<a-marker preset="custom" type="pattern" url="pattern-marker.patt" >
+   <a-entity
+              geometry="primitive: plane;"
+              material="shader:gif; src:#hagane;
+              color:white;
+              opacity:1"
+              rotation="90 0 0">
+   </a-entity>
+</a-marker>
+    <a-entity camera></a-entity>
+  </a-scene>
+  <script>
+
+    </body>
 </html>
