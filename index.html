@@ -5,7 +5,7 @@
     <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
     <!-- AR.jsを読み込む -->
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+    <script src="./aframe-gif-shader-master/dist/aframe-gif-shader.min.js"></script>
   </head>
   <body style="margin: 0; overflow: hidden">
     <!-- シーンの作成、VRモードのUI非表示 -->
@@ -13,7 +13,6 @@
       <!-- マーカーを設定する -->
       <a-marker type="pattern" url="pattern-marker.patt">
         <!-- 3Dモデルを呼び出す -->
-        <a-entity position="0 0 0" rotation="0 0 0" geometry="primitive:plane;width:2;height:2;" material="shader:gif;src:url(./hagane.gif);transparent:true;" gif=""></a-entity>
-        
+        <a-entity position="0 0.5 0" rotation="0 0 0" geometry="primitive:plane;width:2;height:2;" material="shader:gif;src:url(./hagane.gif);transparent:true;" gif=""></a-entity>
       </a-marker>
   </body>
